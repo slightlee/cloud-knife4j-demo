@@ -1,0 +1,15 @@
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+###
+target/
+
+
+### logs ###
+
+/.murphy.yml
