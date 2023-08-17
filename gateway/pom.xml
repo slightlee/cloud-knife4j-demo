@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-server</artifactId>
+    <artifactId>gateway</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -17,16 +17,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+
     <dependencies>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
         <dependency>
@@ -35,16 +32,27 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.6.13</version>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.webjars</groupId>-->
-<!--                    <artifactId>swagger-ui</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
+        <!--   远程仓库正式版以及快照版本 default 问题暂未修复， 暂时使用本地源码编译-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+            <version>4.4.0-SNAPSHOT</version>
+        </dependency>
+
+
     </dependencies>
+
+    <!-- 快照版仓库 -->
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>nexus-maven</id>-->
+    <!--            <name>nexus-maven</name>-->
+    <!--            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
+
 </project>

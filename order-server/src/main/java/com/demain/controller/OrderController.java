@@ -6,6 +6,7 @@ import com.demain.entity.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
@@ -30,6 +31,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @RestController
 @RequestMapping("/order")
 @RequiredArgsConstructor
+@Tag(name = "订单管理")
 @Slf4j
 public class OrderController {
 

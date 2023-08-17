@@ -1,0 +1,51 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    # 方式一：
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+    # 方式二：
+#    gateway:
+#      discovery:
+#        locator:
+#          #为true代表开启基于服务发现的路由规则。
+#          enabled: false
+#          #配置之后访问时service-id无需大写
+#          lower-case-service-id: true
+#      routes: # 网关路由配置
+#        - id: user-server-route # 路由id，自定义，只要唯一即可
+#          uri: lb://user-server # 路由的目标地址 lb就是负载均衡，后面跟服务名称
+#          predicates: # 路由断言，也就是判断请求是否符合路由规则的条件
+#            - Path=/user-server/** # 这个是按照路径匹配，只要以/user/开头就符合要求
+#          filters:
+#            - StripPrefix=1 # 使用过滤器
+#        - id: order-server-route # 路由id，自定义，只要唯一即可
+#          uri: lb://order-server
+#          predicates:
+#            - Path=/order-server/**
+#          filters:
+#            - StripPrefix=1 # 使用过滤器
+
+knife4j:
+  gateway:
+    # ① 第一个配置，开启gateway聚合组件
+    enabled: true
+    # ② 第二行配置，设置聚合模式采用discover服务发现的模式
+    strategy: discover
+    discover:
+      # ③ 第三行配置，开启discover模式
+      enabled: true
+      # ④ 第四行配置，聚合子服务全部为Swagger2规范的文档
+      version: OpenAPI3
+
