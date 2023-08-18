@@ -9,3 +9,6 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 
+springdoc:
+  apiDocs:
+    enabled: true   # 是否关闭接口文档 默认开启
