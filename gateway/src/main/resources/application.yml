@@ -48,6 +48,11 @@ knife4j:
       enabled: true
       # 聚合子服务全部为OpenAPI3规范的文档
       version: OpenAPI3
+    # HTTP基本认证
+    basic:
+      enable: true  # 默认 false
+      username: admin
+      password: admin
 
 # 个性化配置
 #knife4j:
