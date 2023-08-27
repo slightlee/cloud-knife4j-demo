@@ -31,7 +31,7 @@ public class UserController {
 	 */
 	@GetMapping("/getUserInfo/{userId}")
 	@Operation(summary = "根据用户ID获取用户信息")
-	@Parameters({ @Parameter(name = "id", description = "用户ID") })
+	@Parameters({ @Parameter(name = "userId", description = "用户ID") })
 	public User index(@PathVariable("userId") String userId) {
 		User user = new User();
 		user.setUserId(userId);
